@@ -91,11 +91,9 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
 
 # Celery stuff
-celerybeat-schedule
 celerybeat.pid
 
 # SageMath parsed files
@@ -110,6 +108,12 @@ ENV/
 env.bak/
 venv.bak/
 
+# Broader virtualenv name patterns
+# Covers variations like venv311, .venv-django, env-local, etc.
+.venv*/
+venv*/
+env*/
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -118,8 +122,6 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/site
-
 # mypy
 .mypy_cache/
 .dmypy.json
