@@ -25,24 +25,11 @@ class ProductListCreateAPIView(generics.ListCreateAPIView):
 
     pagination_class = LimitOffsetPagination
 
-    # pagination_class = PageNumberPagination
-    # pagination_class.page_size = 2
-    # pagination_class.page_query_param = 'pagenum'
-    # pagination_class.page_size_query_param = 'size'
-    # pagination_class.max_page_size = 4
-
-
     def get_permissions(self):
         self.permission_classes = [AllowAny]
         if self.request.method == 'POST':
             self.permission_classes = [IsAdminUser]
         return super().get_permissions()
-
-# @api_view(['GET'])
-# def product_list(request):
-#     products = Product.objects.all()
-#     serializer = ProductSerializer(products, many=True)
-#     return Response(serializer.data)
 
 class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
@@ -55,38 +42,11 @@ class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
             self.permission_classes = [IsAdminUser]
         return super().get_permissions()
 
-# @api_view(['GET'])
-# def product_detail(request, pk):
-#     product = get_object_or_404(Product, pk=pk)
-#     serializer = ProductSerializer(product)
-#     return Response(serializer.data)
-
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.prefetch_related('items__product')
     serializer_class = OrderSerializer
     permission_classes = [AllowAny]
     pagination_class = None
-
-
-# class OrderListAPIView(generics.ListAPIView):
-#     queryset = Order.objects.prefetch_related('items__product')
-#     serializer_class = OrderSerializer
-
-
-# @api_view(['GET'])
-# def order_list(request):
-#     orders = Order.objects.prefetch_related('items__product')
-#     serializer = OrderSerializer(orders, many=True)
-#     return Response(serializer.data)
-
-# class UserOrderListAPIView(generics.ListAPIView):
-#     queryset = Order.objects.prefetch_related('items__product')
-#     serializer_class = OrderSerializer
-#     permission_classes = [IsAuthenticated]
-
-#     def get_queryset(self):
-#         qs = super().get_queryset()
-#         return qs.filter(user=self.request.user)
 
 class ProductInfoAPIView(APIView):
     def get(self, request):
@@ -97,13 +57,3 @@ class ProductInfoAPIView(APIView):
             'max_price': products.aggregate(max_price=Max('price'))['max_price']
         })
         return Response(serializer.data)
-
-# @api_view(['GET'])
-# def product_info(request):
-#     products = Product.objects.all()
-#     serializer = ProductInfoSerializer({
-#         'products': products,
-#         'count': len(products),
-#         'max_price': products.aggregate(max_price=Max('price'))['max_price']
-#     })
-#     return Response(serializer.data)
