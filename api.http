@@ -51,3 +51,11 @@ Content-Type: application/json
 ###
 GET http://127.0.0.1:8000/user-orders/ HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU5ODA2NjQwLCJpYXQiOjE3NTk4MDYzNDAsImp0aSI6ImNjODJlZjI4Zjg3ZjRiZTE5NzliMDgyMjViOTVjYmY3IiwidXNlcl9pZCI6IjQifQ.WcLiFR5WdxB8dTofobgjAIpnqAmtNQZheYOMvrPAsX8
+
+###
+GET http://127.0.0.1:8000/orders/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYxNzAyNTk0LCJpYXQiOjE3NjE3MDIyOTQsImp0aSI6ImIwMmZjMTk4ZDk3MDRhMDBiODhlZWIxZGFiOTYwNDA5IiwidXNlcl9pZCI6IjQifQ.8SlZet7Vp3Nkb2FuHqspYZLf6gwe_j3jbvriye__B8A
+
+###
+GET http://127.0.0.1:8000/orders/9331f725-1191-40e0-ae7f-7081ba5a742b HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYxNzAzNDI2LCJpYXQiOjE3NjE3MDMxMjYsImp0aSI6ImRiN2Q4MTRjNTE3YjQzODdiMjlmZGE4YmMyN2ZhYTIzIiwidXNlcl9pZCI6IjQifQ.T8F5o4mXkOBeL8_t9AwXLcZ4CZg9fzPbXJgZIEAZkwk
