@@ -63,11 +63,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 ###
 POST http://127.0.0.1:8000/orders/ HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYyMTE0OTAxLCJpYXQiOjE3NjIxMTQ2MDEsImp0aSI6IjM1MTVjMmZhMWFhZTQ3NWY4NWNhMjMzNDY5YTYzMWFlIiwidXNlcl9pZCI6IjYifQ.i1EPWQ2nMJW8NsG6mhRKZUNkuPyfBX9Ld0LhGceMOl4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYyOTk5NzE3LCJpYXQiOjE3NjI5OTk0MTcsImp0aSI6ImU2NTc1MmIwMDQwNTQxMWI4MmM4YWZmMDY1NjU4MjkwIiwidXNlcl9pZCI6IjYifQ.Eazi-4yM5Qx77glcZ2cMWD55OiP7OASJ5Vz8-ZqYo00
 
 {    
     "status": "Pending",
-    "user": 6,
     "items": [
         {
             "product": 2,
@@ -79,3 +78,30 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
         }
     ]
 }
+
+###
+GET http://127.0.0.1:8000/orders/2c91e35e-bdab-408d-a24d-61d9ab7de79d/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYzMDAyMjI1LCJpYXQiOjE3NjMwMDE5MjUsImp0aSI6ImU2ZWU5NjVlNDcyNDQzZmJiNTQ1NGY3ZjBkYjljZmQ3IiwidXNlcl9pZCI6IjYifQ.bmAlGz4JQRdOG26TGPB9coRpfnywVIUQxRFMciqpDdE
+
+###
+PUT http://127.0.0.1:8000/orders/2c91e35e-bdab-408d-a24d-61d9ab7de79d/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYzMDAzMDAzLCJpYXQiOjE3NjMwMDI3MDMsImp0aSI6ImU0NjdiNjIwZDRiMDRjY2FiZDg3Y2IzMDc1YzcwN2M2IiwidXNlcl9pZCI6IjYifQ.WqCzO5PfNcybm5BZsoxoCYnR-PceqObKgqSHj8ZlJwE
+
+{    
+    "status": "Confirmed",
+    "items": [
+        {
+            "product": 2,
+            "quantity": 11
+        },
+        {
+            "product": 3,
+            "quantity": 10
+        }
+    ]
+}
+
+###
+DELETE  http://127.0.0.1:8000/orders/2c91e35e-bdab-408d-a24d-61d9ab7de79d/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYzMDAzMDAzLCJpYXQiOjE3NjMwMDI3MDMsImp0aSI6ImU0NjdiNjIwZDRiMDRjY2FiZDg3Y2IzMDc1YzcwN2M2IiwidXNlcl9pZCI6IjYifQ.WqCzO5PfNcybm5BZsoxoCYnR-PceqObKgqSHj8ZlJwE

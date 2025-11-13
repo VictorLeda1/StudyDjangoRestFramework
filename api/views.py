@@ -56,7 +56,7 @@ class OrderViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
     def get_serializer_class(self):
-        if self.action == 'create':
+        if self.action == 'create' or self.action == 'update':
             return OrderCreateSerializer
         return super().get_serializer_class()
 
@@ -67,11 +67,11 @@ class OrderViewSet(viewsets.ModelViewSet):
         return qs
 
     
-    @action(detail=False, methods=['get'], url_path='user-orders')
-    def user_orders(self, request): 
-        orders = self.get_queryset().filter(user=request.user)
-        serializer = self.get_serializer(orders, many=True)
-        return Response(serializer.data)
+    # @action(detail=False, methods=['get'], url_path='user-orders')
+    # def user_orders(self, request): 
+    #     orders = self.get_queryset().filter(user=request.user)
+    #     serializer = self.get_serializer(orders, many=True)
+    #     return Response(serializer.data)
 
 class ProductInfoAPIView(APIView):
     def get(self, request):
